@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<style>
+pre{
+	padding : 10px;
+}
+p{
+	font-size : 1.5em;
+}
+p[class=pp]{
+	color : blue;
+}
+span[class=pp]{
+	font-size : 2.0em;
+	font-weight : bold;
+}
+strong{
+	font-size : 1.4em;
+}
+p[id=p4]{
+	background-color : #f1d1e1;
+}
+p[id]{
+	text-align : center;
+	text-shadow : 10px 5px 0px lightgrey; 
+}
+p[title=무궁화1]{
+	border : 3px solid green;
+}
+p[title]{
+	font-style : italic;
+	color : red;
+}
+</style>
+</head>
+<body>
+<pre>
+작성팁
+속성관련 선택
+다음과 같이 다양한 방법으로 속성을 선택할 수 있다. 
+<!-- text-shadow에서 마지막 요소인 0px는 그림자의 흐림을 나타내며 숫자가 커질수록 흐려진다. -->
+<!-- 1요소 : 그림자의 x 좌표, 2요소 : 그림자의 y자표.. -->
+<strong>p[class=pp]</strong>
+<strong>span.pp</strong>
+<strong>span[class=pp] font-size : 2.0em </strong>
+
+<strong>p[id=p4] background-color : #f1d1e1;</strong>
+<strong>p[title=무궁화1] border : 3px solid green;</strong>
+<strong>p[title] -> p중에서 title 속성을 가지고 있는 대상. font-style : italic;
+	color : red;</strong>
+<strong>p[id] -> id를 가지고 있는 대상</strong>
+</pre>
+
+<div>
+	<p title="무궁화1" id="p1">무궁화 꽃이 피었습니다.</p>
+	<p class="pp">무궁화 꽃이 피었습니다.</p>
+	<p title="" class="pp">무궁화 꽃이 피었습니다.</p>
+	<p id="p4">무궁화 꽃이 피었습니다.</p>
+	<p class="pp2">무궁화 꽃이 피었습니다.</p>
+	<span class="pp">사과</span>
+	<span>복숭아</span>
+	<span>수박</span>
+</div>
+</body>
+</html>

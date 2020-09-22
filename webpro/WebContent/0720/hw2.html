@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+  h1{
+  	text-align : left;
+  
+  }
+  label{
+	display : inline-block;
+	width : 100px;
+	height : 40px;
+	}
+  fieldset{
+  	width : 50%;
+  }
+</style>
+</head>
+<body>
+<h1>이메일 전송화면</h1>
+<form>
+    <fieldset>
+	    <legend>작성정보</legend>
+		<label>이름</label> <input type="text"><br>
+		<label>이메일</label> <input type="text"><br>
+	    <span>내용</span><br>
+	    <textarea name="area" rows="10" cols="60"></textarea><br>
+		<button type="button" onclick="send.jsp">전송</button>
+	    <button type="button">재설정</button>
+	</fieldset>
+		
+  </form>
+</body>
+</html>

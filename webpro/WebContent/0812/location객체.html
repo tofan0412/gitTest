@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<style>
+</style>
+<script>
+	function proc1(){
+		url = "http://localhost/webpro/0811/input.html";
+		res = "href = " + location.href + "<br>";
+		// 현재 실행중인 page의 url을 출력한다. 
+		res += "protocol = " + location.protocol + "<br>";
+		res += "hostname = " + location.hostname + "<br>";
+		res += "host = " + location.host + "<br>";
+		res += "pathname = " + location.pathname + "<br>";
+		res += "port = " + location.port + "<br>";
+		document.getElementById('result1').innerHTML = res;
+	}
+	
+	function proc2(){
+		location.href = "test.jsp";
+	}
+	function goPage(){
+		location.href = "test.jsp?id=a001";	//get방식일 때는, ?를 통해 받아온다. 
+	}
+	
+	function gopagePost(){
+		// form 검색
+		//document.ff, document.getElementsByName
+		document.getElementById("ff")[0];	// ID를 이용해서 검색한 것..ID의 경우 중복이 허용되지 않는다.(s 없음)
+		
+		// form 검색 -> name을 이용해서 검색하기
+		// document.getElementsByName("ff");  Name을 이용해서 검색하기. Name은 중복이 가능하다. (s 있음)
+		// document.ff	와 같이 이름으로 검색할 수도 있다. 만약 이렇게 작성하면, Name이 여러 개 있어선 안된다. 
+		
+		document.ff.action = "testpost.jsp";
+		document.ff.method = "post";
+		document.ff.submit();
+	}
+	
+	function goReplace(url){
+		location.replace(url);	// url로 페이지를 대체한다. 따라서 뒤로가기를 사용할 수 없다. 
+	}
+	
+	function goReload(){
+		// 문자열 배열을 생성하고, 랜덤을 이용해서 문자열들을 하나씩 출력한다.
+		str = ["Hello", "Happy", "JavaScript", "JQuery", "HTML", "CSS"];
+		//str[0], str[4], str[1]로 선택할 수 있다.
+		
+		// 랜덤발생 0~ str.길이 - str[랜덤]
+		rnd = Math.floor(Math.random()*str.length);
+		// 출력후 - #result2 - 글자색은 빨강, 폰트 크기는 1.5배
+		result = document.querySelector("#result2");
+		
+		result.style.color = "red"; 
+		result.style.fontSize = "3.0em";
+		result.innerHTML = str[rnd];
+		
+		//0.5초 경과 후(setTimeout을 사용한다.) 원래의 페이지로 돌아온다.
+		setTimeout(function(){
+			location.reload();
+		}, 1000);
+	}
+</script>
+</head>
+<body>
+	<div class="box">
+		<h3>1. url 정보 얻기</h3>
+		href : 전체 url <br> 
+		port : 80 기본 웹폰트로 생략한다. <br>
+		host : hostname + port 정보 <br>
+		hostname : localhost<br>
+		pathname : host부분을 제외한 정보<br>
+		protocol : http를 의미한다.<br> 
+		<br>
+		<input type="button" value="확인" onclick="proc1()">
+		<br><br>
+		<div id="result1"></div>
+	</div>
+	
+	<div class="box">
+		<h3>1.location 객체의 이용</h3>
+		<br> 
+		자동으로 특정 페이지(test.jsp)를 이동하고자 할 때 이용한다.<br> 
+		<input type="button" value="페이지의 이동" onclick="proc2()">
+		<br>
+		<br>
+		a태그 이용 : a href 속성값으로 js함수를 호출하도록 설정..<br>
+		<a onclick="goPage()" href="javascript:goPage();">공지사항 목록</a><br>
+		href = "javascript : 함수명()" <br>
+		<br>
+		이벤트 사용(get) : <br>
+		<input onclick="goPage()" type="button" value=공지사항목록><br>
+		<br>
+		이벤트 사용(post) : <!-- post를 할 때는 form 태그가 필요하다. --> <br>
+		<form name="ff" id="ff">
+			<input type="hidden" value="korea" name="id"><br> <!-- type이 hidden이면 보이지 않는다.  -->
+			<input onclick="gopagePost()" type="button" value="공지사항목록"><br>
+		</form>
+		<br>
+		새로운 문서로 대체(replace(url)) : 원래의 페이지로 돌아올 수 없다. <br>
+		<input onclick="goReplace('test.jsp')" type="button" value="공지사항목록"><br>
+		<br>
+		현재 문서를 다시 로드 : <br>
+		<input onclick="goReload()" type="button" value="페이지 재호출"><br>
+		<div id="result2"></div>
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<style>
+div{
+	width: 50%;
+	height: 100px;
+	background : pink; 
+}
+</style>
+</head>
+<body>
+<pre>
+확인 버튼을 클릭하면 proc1() 함수가 호출된다. 
+proc1() 함수에서 Date 객체 생성 후 
+document.write()를 이용해서 출력문을 출력한다.
+출력하기 전에 이미 만들어져 있는 document문서는 사라진다. 즉 다시 이전으로 돌아갈 수 없다.   
+</pre>
+
+	<input type="button" id="btn1" value="확인" onclick="proc1()">
+	<br>
+	<pre>
+		출력 버튼을 클릭하면 proc2() 함수가 호출된다. 
+		proc1()함수에서 Date 객체를 생성 한 후 
+		div에 출력한다.
+		div에 출력하기 위해서는 접근방법이 필요하다.
+		document.querySelector('div')
+		document.querySelector('#out')도 가능하다.
+		 
+		document.getElementById('out') 
+		document.getElementsByTagName('div')[0]
+		div가 여러개 있는 경우, 0번째 div에만 적용한다. 
+		
+		출력 : div객체변수.innerHTML = 출력내용.. ;
+	</pre>
+	<input type="button" value="출력" onclick="proc2()">
+	<div id="out"></div>
+	<script>
+	// 위치는 상관 없다.
+		
+		function proc1() {
+			var now = new Date();
+			document.write(now + "<br>");
+			// 한번만 쓸 수 있다..?
+		}
+		function proc2() {
+			var now = new Date();
+			// var는 let, const 로 변경될 수 있다. (기능 다 다름..)
+			var vout = document.getElementById('out');
+			vout.style.fontsize = '1.5em';
+			vout.innerHTML = now;	// 특정 박스 안에서 텍스트문을 출력한다.
+		}
+	</script>	
+	
+</body>
+</html>

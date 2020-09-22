@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<style>
+</style>
+<script>
+	function proc1(){
+		today = new Date();
+		birthday = new Date(1995, 4-1, 12);
+		
+		times = today.getTime() - birthday.getTime();
+		res = "살아온 초(millisec) : " + times + "<br>";
+		res += "살아온 초(sec) : " + Math.floor(times/1000) + "초<br>";
+		res += "살아온 분(min) : " + Math.floor(times/1000/60) + "분<br>";
+		res += "살아온 시간(hour) : " + Math.floor(times/1000/60/60) + "시<br>";
+		res += "살아온 일수(day) : " + Math.floor(times/1000/60/60/24) + "일<br>";
+		res += "살아온 해(year) : " + Math.floor(times/1000/60/60/24/365) + "년<br>";
+		
+		document.querySelector("#result1").innerHTML = res;
+	}
+	
+	function proc2(){
+		// 오늘 날짜를 생성한다. 
+		today = new Date();
+		//오늘의 millisec(today.getTime()) + 100일의 millisec을 더한다. 
+		after = today.getTime() + 100*24*60*60*1000;
+		// 새로운 Date객체 생성 - new Date()
+		res = new Date(after);
+		
+		document.querySelector("#result2").innerHTML = res;
+	}
+	
+	function proc3(){
+		// 오늘 날짜를 생성한다. 
+		today = new Date();
+		// 크리스마스 날짜를 생성한다.
+		christ = new Date(2020,12,25);
+		after = christ.getTime()- today.getTime();
+		res = Math.floor(after/1000/60/60/24); 
+		// 새로운 Date객체 생성 - new Date()
+		
+		document.querySelector("#result3").innerHTML = res + "일 남았습니다.";
+	}
+
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h3>1. 경과 시간 구하기</h3>
+		- 태어난 날로부터 현재까지 일 수 구하기<br>
+		- birthday = new Date("태어난 날 입력..");<br>
+		- today = new Date() : 현재의 날짜<br>
+		<br>
+		<input type="button" value="확인" onclick="proc1()">
+		<br><br>
+		<div id="result1"></div>
+	</div>
+	
+	<div class="box">
+		<h3>2. 기준일로부터 100일 구하기</h3>
+		<br>
+		<input type="button" value="100일구하기" onclick="proc2()">
+		<br><br>
+		<div id="result2"></div>
+	</div>
+	
+	<div class="box">
+		<h3>3. 크리스마스까지 남은 일 수 계산하기</h3>
+		<br>
+		<input type="button" value="Christmas" onclick="proc3()">
+		<br><br>
+		<div id="result3"></div>
+	</div>
+	
+	
+	
+</body>
+</html>

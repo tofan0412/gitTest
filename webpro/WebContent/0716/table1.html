@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<style>
+	table#tab1{
+		border : 3px solid blue;
+		border-collapse: collapse;
+		margin : 10px;
+	}
+	table#tab1 th{
+		height : 50px;	
+	}
+	
+	#tab1 td{
+		width : 200px;
+		height : 40px;
+		text-align : center;
+	}
+	#tr1{
+		background : yellow;
+	}
+	
+	
+		table#tab2{
+		border : 3px dotted green;
+		border-collapse: collapse;
+		margin : 10px;
+	}
+	table#tab2 th{
+		height : 40px;	
+	}
+	
+	#tab2 td{
+		width : 200px;
+		height : 40px;
+		text-align : left;
+	}
+	#tr2{
+		background : lightblue;
+	}
+	
+	
+		table#tab3{
+		border : 3px dashed blue;
+		border-collapse: collapse;
+		margin : 10px;
+	}
+	table#tab3 th{
+		height : 30px;	
+	}
+	
+	#tab3 td{
+		width : 150px;
+		height : 40px;
+		text-align : right;
+	}
+	#tr3{
+		/* rgba 투명도까지 포함해서 색상을 조절할 수 있다. rgb : 색상을 나타낼 수 있다. */
+		background : rgba(255,0,0, 0.6);
+	}
+	
+	
+</style>
+</head>
+<body>
+<pre>
+작성팁
+ table : 표 형태의 데이터를 표시한다. 
+ tr : table row(행 또는 줄을 의미한다.)
+ td : table data(칸을 의미한다.)
+ th : 표의 제목을 의미하며 자동으로 텍스트가 가운데 정렬이 되고, 글씨가 bold처리 된다. 
+ 
+ 스타일
+ table : border, border-collapse
+ td : width, height, text-align 
+ tr : background.
+ th : width , height
+
+</pre>
+
+<table id="tab1" border = "1">
+
+	<tr id = "tr1">
+		<th>이름</th>
+		<th>주소</th>
+		<th>전화번호</th>
+	</tr>
+	
+	<tr>
+		<td>홍길동</td>
+		<td>대전</td>
+		<td>010-1234-5678</td>
+	</tr>
+	
+	 <tr>
+		<td>개나리</td>
+		<td>서울</td>
+		<td>010-5678-5678</td>
+	</tr>
+	
+	<tr>
+		<td>진달래</td>
+		<td>부산</td>
+		<td>010-7890-1234</td>
+	</tr>
+	
+</table>
+
+
+<table id="tab2" border = "1">
+
+	<tr id = "tr2">
+		<th>이름</th>
+		<th>주소</th>
+		<th>전화번호</th>
+	</tr>
+	
+	<tr>
+		<td>홍길동</td>
+		<td>대전</td>
+		<td>010-1234-5678</td>
+	</tr>
+	
+	 <tr>
+		<td>개나리</td>
+		<td>서울</td>
+		<td>010-5678-5678</td>
+	</tr>
+	
+	<tr>
+		<td>진달래</td>
+		<td>부산</td>
+		<td>010-7890-1234</td>
+	</tr>
+	
+</table>
+
+
+<table id="tab3" border = "1">
+
+	<tr id = "tr3">
+		<th>이름</th>
+		<th>주소</th>
+		<th>전화번호</th>
+	</tr>
+	
+	<tr>
+		<td>홍길동</td>
+		<td>대전</td>
+		<td>010-1234-5678</td>
+	</tr>
+	
+	 <tr>
+		<td>개나리</td>
+		<td>서울</td>
+		<td>010-5678-5678</td>
+	</tr>
+	
+	<tr>
+		<td>진달래</td>
+		<td>부산</td>
+		<td>010-7890-1234</td>
+	</tr>
+	
+</table>
+
+</body>
+</html>

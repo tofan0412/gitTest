@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="styleSheet" href="../css/public.css" type="text/css">
+<style>
+a:link {
+	color: red;
+	text-decoration: none;
+}
+
+a:visited {
+	color: green;
+}
+
+a:hover {
+	background: yellow;
+	font-size: 1.2em;
+	text-decoration: overline;
+}
+
+a:active {
+	color: blue;
+	text-decoration: :Line-through;
+}
+
+td {
+	width: 200px;
+	height: 40px;
+	text-align: center;
+}
+/* tab1 td가 의미하는 건 td가 tab1의 후손 이라는 뜻이다. */
+#tab1 td:nth-child(1) { /* td 중에서 첫번째 자식을 선택해라.. */
+	background: #FAFAB4;
+}
+
+#tab1 td:nth-child(2n) { /* 짝수번 째 행을 골라 색을 blue로 바꾼다. */
+	background: skyblue;
+}
+
+table {
+	margin-top: 20px;
+}
+
+#tab2 tr:nth-child(2n-1) {
+	background: yellow;
+}
+/* 짝수번째는 2n, 홀수번째는 2n-1로 표현할 수 있다. */
+</style>
+
+<script type="text/javascript">
+	// 생략 가능하다. 
+	function changeColor() {
+		// 배경색 변경
+
+		// tab1의 td에 접근한다. - class를 적용하여 선택한다. 
+		td1 = document.querySelectorAll('.td1');
+		for (i = 0; i < td1.length; i++) {
+			r = parseInt(Math.random() * 256);
+			g = parseInt(Math.random() * 256);
+			b = parseInt(Math.random() * 256);
+			td1[i].style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b
+					+ ')';
+			
+			r16 = r.toString(16);
+			g16 = g.toString(16);
+			b16 = b.toString(16);
+	 		td1[i].style.backgroundColor = '#'+r16+g16+b16;
+		}
+	}
+</script>
+</head>
+<body>
+	<pre>
+작성팁
+의사 클래스(pseudo-class, 가상클래스):
+클래스가 정의된 것처럼 간주. :으로 사용
+상태나 구조에 의해서 선택이 이루어진다.
+
+상태
+	a:link -> 처음 상태
+	a:visited : 한번 방문한 상태
+	a:hover : 마우스가 올려져 있는 상태
+	a:active : 마우스를 down하는 상태
+	
+</pre>
+	<a href="http://www.naver.com">네이버</a>
+	<a href="http://www.daum.net">다음</a>
+	<a href="../아메리카노.html">아메리카노</a>
+
+	<h3>tab1에서 첫번째 td를 선택</h3>
+	<h3>tab1에서 짝수번째 td를 선택</h3>
+	버튼을 클릭하면 tab1의 첫번째 td의 배경색을 변경한다.
+	<input type="button" value="확인" onclick="changeColor()">
+	<table border="1" id="tab1">
+		<tr>
+			<td class="td1">1</td>
+			<td>2</td>
+			<td>3</td>
+			<td>4</td>
+		</tr>
+
+		<tr>
+			<td class="td1">1</td>
+			<td>2</td>
+			<td>3</td>
+			<td>4</td>
+		</tr>
+
+		<tr>
+			<td class="td1">1</td>
+			<td>2</td>
+			<td>3</td>
+			<td>4</td>
+		</tr>
+	</table>
+
+	<h3>tab2에서 짝수번째 tr을 선택</h3>
+	<table border="1" id="tab2">
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+			<td>4</td>
+		</tr>
+
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+			<td>4</td>
+		</tr>
+
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+			<td>4</td>
+		</tr>
+
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+			<td>4</td>
+		</tr>
+
+	</table>
+
+
+</body>
+</html>

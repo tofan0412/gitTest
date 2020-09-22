@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<style>
+</style>
+<script>
+	function proc1(){
+		regNo = prompt("주민번호를 입력하세요. 예)950412-1234567");
+		
+		year = regNo.substr(0,2); 
+		month = regNo.substr(2,2);
+		date = regNo.substr(4,2);
+		factor = regNo.substr(7,1);
+		
+		if (factor == 1 || factor == 2) year1 = "19" + year;
+		else year1 = "20" + year;
+		
+		if (factor == 1 || factor == 3) gender = "남성";
+		else gender = "여성";
+		
+		res = "생일 : " + year1 + "년&nbsp;" + month + "월&nbsp;" + date + "일&nbsp;" + "<br>";
+		res += "성별 : " + gender + "<br>";
+		res += "나이 : " + (2020 - parseInt(year1)) + "<br>";
+		
+		document.querySelector("#result1").innerHTML = res;
+	}
+	function proc2(){
+		regNo = prompt("주민번호를 입력하세요. 예)950412-1234567");
+		sum = 0;
+		// codeArr = regNo.split("-")로 하면 
+		// codeArr[0]은 950412가 되고, codeArr[1]은 1234567이 된다.
+		
+		// code = codeArr[0].concat(codeArr[1])와 같이 작성하면, 9504121234567이 된다. 
+		
+		// console.log("code=" + code); 와 같이 하면 개발자 도구에 값이 기록된다. 
+		// console.log("code.length=" + code.length);
+		
+		
+		for ( i = 0 ; i < 6 ; i++){
+			sum += parseInt(regNo.substr(i,1))*(i+2);
+		}
+		
+		sum += parseInt(regNo.substr(7,1))*8;
+		sum += parseInt(regNo.substr(8,1))*9;
+		
+		for ( j = 9 ; j < 13 ; j++){
+			sum += parseInt(regNo.substr(j,1))*(j-7);
+		}
+		
+		alert("합은 : " + sum);
+		
+		rest = sum%11;
+		
+		alert("11로 나눴을 때의 나머지는 : " + rest);
+		res = 11 - rest;
+		if (0 <= res && res < 10) res = res;
+		else if (res == 10) res = 0;
+		else if (res == 11) res = 1;
+		
+		
+		// value == regNo[regNo.length - 1] 와 같은 표현으로도 작성할 수 있다.
+		if (res == regNo.substr(13,1)){
+			res1 = "올바른 주민번호입니다.";
+		}else{
+			res1 = "올바르지 않은 주민번호입니다.";
+		}
+		document.querySelector("#result2").innerHTML = res1;
+	}
+</script>
+</head>
+<body>
+	<div class="box">
+		<h3>1. 주민등록번호를 입력 받아 생년월일 출력하기</h3>
+		<br>
+		<input type="button" value="입력1" onclick="proc1()">
+		<input type="button" value="입력2" onclick="proc2()">
+		<br><br>
+		<div id="result1"></div>
+		<div id="result2"></div>
+	</div>
+</body>
+</html>

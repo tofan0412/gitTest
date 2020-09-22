@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<style>
+</style>
+<script>
+	window.onload = function(){
+	//랜덤한 수를 발생. function 안에 넣으면 클릭할 때마다 랜덤값이 바뀌므로, 밖에서 먼저 선언한다. 
+	rndNum = parseInt(Math.random()*100 + 1);
+	// 몇번만에 맞춘건지 체크하기..
+	cnt = 0;
+	hint="";
+	values = "";
+	
+	result = document.querySelector("#result1");
+	result2 = document.querySelector("#result2");
+	result3 = document.querySelector("#result3");
+	// 얘 때문에 onload를 사용한다. 
+	}
+	
+	function proc1(){
+		// 입력한 값을 가져오기.
+		inputvalue = document.getElementById("input").value;
+
+		// 두 값을 서로 비교하기
+		if (rndNum == inputvalue){
+			hint = "정답입니다.";
+			alert(hint);
+			cnt++;
+			values += inputvalue + "&nbsp;&nbsp;";
+			res = " 랜덤 : " + rndNum + "<br>";
+			res += "입력한 값 : " + values + "<br>";
+			res += "횟수 : " + cnt + "<br>";
+			result.innerHTML = res;
+		} 
+		else if (rndNum > inputvalue){
+			hint = "UP";
+			cnt++;
+			values += inputvalue + "&nbsp;&nbsp;";
+			result.innerHTML = hint; 
+		}
+		else if (rndNum < inputvalue){
+			hint = "DOWN";
+			cnt++;
+			values += inputvalue + "&nbsp;&nbsp;";
+			result.innerHTML = hint;
+		}
+	}
+	
+	function proc2(){
+		arr = ["가위", "바위", "보"];
+		user = prompt("가위, 바위, 보 중 하나를 입력하세요.");
+		rndNum = parseInt(Math.random()* arr.length);
+		ans = "";
+		if (rndNum == 0) ans = "가위";
+		if (rndNum == 1) ans = "바위";
+		if (rndNum == 2) ans = "보";
+		
+		res = "사용자 : " + user + "<br>";
+		res += "컴퓨터 : " + ans + "<br>";
+		
+		if (user == "가위" && ans == "보"
+			|| user == "바위" && ans == "가위"
+			|| user == "보" && ans == "바위"){
+			res += "이겼습니다. ";
+		}
+		if (user == "바위" && ans == "보"
+			|| user == "보" && ans == "가위"
+			|| user == "가위" && ans == "바위"){
+			res += "졌습니다.. ";
+		}
+		if (user == ans){
+			res += "비겼습니다.";			
+		}
+		result2.innerHTML = res;
+	}
+	
+	function proc3(){
+		arr = [];
+		while(arr.length < 5){
+			rndNum =  parseInt(Math.random()*45 + 1);
+			if (arr.indexOf(rndNum) < 0) arr.push(rndNum);
+			// indexOf가 중요하다..
+		}
+		result3.innerHTML += arr + "<br>";
+	}
+</script>
+</head>
+<body>
+	<div class="box">
+		<h3>1. 랜덤 수 맞추기</h3>
+		1~100 사이의 랜덤을 발생한다.<br> 
+		랜덤수를 맞춘다. <br>
+		힌트와 몇번만에 맞췄는지 체크한다.<br>
+		<br>
+		<input type="text" id="input">
+		<input type="button" value="랜덤수 맞추기" onclick="proc1()">
+		<br><br>
+		<div id="result1"></div>
+	</div>
+	
+	<div class="box">
+		<h3>2. 가위바위보</h3>
+		컴퓨터는 배열에 저장, 랜덤으로 가위바위보를 결정한다. <br>
+		사용자는 가윕바위보를 입력 -> prompt <br>
+		어느쪽이 이겼는지 결과를 출력한다. <br>
+		<br>
+		<input type="button" value="가위바위보" onclick="proc2()">
+		<br><br>
+		<div id="result2"></div>
+	</div>
+	
+	<div class="box">
+		<h3>3. 로또 버호 발생</h3>
+		1 ~ 45번까지 랜덤을 5개 발생하여, 배열에 저장한다. <br>
+		단, 중복이 없어야 한다. <br>
+		<br>
+		<input type="button" value="LOTTO" onclick="proc3()">
+		<br><br>
+		<div id="result3"></div>
+	</div>
+</body>
+</html>

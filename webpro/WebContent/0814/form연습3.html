@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<style>
+	#td1{
+		width : 200px;
+		height : 200px;
+	}
+	.box input[type=button]{
+	
+	}
+	select{
+		width : 100%;
+		height : 100%;
+	}
+</style>
+<script type="text/javascript">
+	window.onload = function(){
+		form = document.selForm;
+		form.data.focus();
+	}
+	function proc1(){
+		// 입력한 값 가져오기
+		datavalue = form.data.value;
+		
+		if (datavalue.trim().length > 0 ){
+			// option 태그 만들기 <option value="sdf">sdf</option>
+			//value와 text속성 설정
+			opt = document.createElement('option');
+			opt.value = datavalue;
+			opt.text = datavalue;
+		}else{
+			
+		}
+		//left에 추가한다. 
+		form.left.appendChild(opt);
+		form.data.value = "";
+		form.data.focus();
+	}
+	
+	function toRight(){	//오른쪽으로 보내기
+		// 왼쪽에서 한 개를 선택
+		idx = form.left.selectedIndex;
+		console.log("idx= " + idx);
+		
+		//선택한 항목이 없으면 메세지 창 띄우기
+		if (idx < 0) {
+			alert("옮길 항목을 선택하세요.");
+			return;	// 메세지 창을 띄운 후, 밑으로 내려가지 않는다.
+		}
+		
+		// 왼쪽의 option에서 선택한 값의 인덱스를 가져온다. 
+		lvalue = form.left.options[idx].value;
+		
+		//option  태그를 생성한다. 
+		opt = document.createElement('option');
+		//value, text를 설정한다. 
+		opt.value = lvalue;
+		opt.text = lvalue; 
+		
+		//오른쪽에 option 태그를 추가한다. 
+		form.right.appendChild(opt);
+		
+		// 왼쪽에서는 삭제 -> 왼쪽에서 선택한 옵션의 인덱스 
+		form.left.removeChild(form.left.options[idx]);
+	}
+	
+	function rightAll(){
+		// option의 개수를 얻어온다. 
+		len = form.left.length;
+		
+		// 개수만큼 반복한다. 
+		for (i = 0 ; i < len ; i++){
+			// 왼쪽에서 차례대로 0,1,2,3... 의 값을 가져온다.
+			lvalue = form.left.options[i].value;
+			//option생성
+			opt = document.createElement('option');
+			//text와 value를 설정한다.
+			opt.value = lvalue;
+			opt.text = lvalue;
+			
+			// 오른쪽 select에 추가한다.
+			form.right.appendChild(opt);
+		}
+		
+		//갯수만큼 지우기를 반복한다.
+		for (i = 0 ; i < len ; i++){
+			form.left.removeChild(form.left.options[0]);
+		}
+	}
+	
+	function toLeft(){
+		// 왼쪽에서 한 개를 선택
+		idx = form.right.selectedIndex;
+		console.log("idx= " + idx);
+		
+		//선택한 항목이 없으면 메세지 창 띄우기
+		if (idx < 0) {
+			alert("옮길 항목을 선택하세요.");
+			return;	// 메세지 창을 띄운 후, 밑으로 내려가지 않는다.
+		}
+		// 왼쪽의 option에서 선택한 값의 인덱스를 가져온다. 
+		rvalue = form.right.options[idx].value;
+		
+		//option  태그를 생성한다. 
+		opt = document.createElement('option');
+		//value, text를 설정한다. 
+		opt.value = rvalue;
+		opt.text = rvalue; 
+		
+		//오른쪽에 option 태그를 추가한다. 
+		form.left.appendChild(opt);
+		
+		// 왼쪽에서는 삭제 -> 왼쪽에서 선택한 옵션의 인덱스 
+		form.right.removeChild(form.right.options[idx]);
+	}
+	
+	function leftAll(){
+		// option의 개수를 얻어온다. 
+		len = form.right.length;
+		
+		// 개수만큼 반복한다. 
+		for (i = 0 ; i < len ; i++){
+			// 왼쪽에서 차례대로 0,1,2,3... 의 값을 가져온다.
+			rvalue = form.right.options[i].value;
+			//option생성
+			opt = document.createElement('option');
+			//text와 value를 설정한다.
+			opt.value = rvalue;
+			opt.text = rvalue;
+			
+			// 오른쪽 select에 추가한다.
+			form.left.appendChild(opt);
+		}
+		
+		//갯수만큼 지우기를 반복한다.
+		for (i = 0 ; i < len ; i++){
+			form.right.removeChild(form.right.options[0]);
+		}
+	}
+	
+</script>
+</head>
+<body>
+	<div class="box">
+		<form name="selForm">
+			1. 연습
+			<table border ="1">
+				<tr><td colspan=3 align= "center"><h1>Select 객체 연습</h1></td></tr>
+				<tr>
+					<td id="td1">
+					<select name="left" multiple="multiple" size= 8>
+					</select>
+					</td>
+					<td id="td1" align="center">
+						<input type="button" value=">" onclick="toRight()"><br>
+						<input type="button" value=">>" onclick="rightAll()"><br>
+						<input type="button" value="<" onclick="toLeft()"><br>
+						<input type="button" value="<<" onclick="leftAll()">
+					</td>
+					<td id="td1">
+						<select name="right" multiple="multiple" size= 8>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td colspan=3 align="center">
+					<input type="text" name="data" value="0">
+					<input type="button" value="추가하기" onclick="proc1()">
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>

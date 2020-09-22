@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<style>
+</style>
+<script>
+	str = "가나다/사자/호랑이/고양이/치타/코끼리/표범/사자/가나다";	
+	str2 = "사과/복숭아/자두/참외/수박/바나나";
+	function proc1(){
+		ind = prompt("인덱스를 입력하세요");
+		
+		//전체 글자수보다 크면 안된다. 
+		if (ind > str.length - 1) {
+			alert("문자의 범위를 벗어났습니다. 다시 입력해주세요.");
+			return; // 만약 글자수보다 크면 아무것도 안하겠다..
+		}
+		
+		ch = str.charAt(ind);
+		res = "str.charAt(" + ind +") : " + ch + "<br>";
+		document.querySelector("#result1").innerHTML = res;
+	}
+	
+	
+	function proc2(){
+		ind = prompt("인덱스를 입력하세요");
+		
+		//전체 글자수보다 크면 안된다. 
+		if (ind > str.length - 1) {
+			alert("문자의 범위를 벗어났습니다. 다시 입력해주세요.");
+			return; // 만약 글자수보다 크면 아무것도 안하겠다..
+		}
+		
+		ch = str.charCodeAt(ind);
+		res = "str.charCodeAt(" + ind +") : " + ch + "<br>";
+		document.querySelector("#result2").innerHTML = res;
+	}
+	
+	function proc3(){
+		input = prompt("문자를 입력하세요");
+		idx = str.indexOf(input);
+				
+		if (idx < 0 ){
+			res =  input + ": 문자열이 존재하지 않습니다.";
+		}else{
+			res = "검색 문자 : " + input + "<br>";
+			res += "문자의 위치 : " + idx + "번 째에 있습니다. <br>";	
+		}
+		
+		document.querySelector("#result3").innerHTML = res;
+	}
+	
+	function proc4(){
+		input = prompt("문자를 입력하세요");
+		idx = str.lastIndexOf(input);
+				
+		if (idx < 0 ){
+			res =  input + ": 문자열이 존재하지 않습니다.";
+		}else{
+			res = "검색 문자 : " + input + "<br>";
+			res += "문자의 위치 : " + idx + "번 째에 있습니다. <br>";	
+		}
+		document.querySelector("#result4").innerHTML = res;
+	}
+	
+	function proc5(){
+		str3 = str.concat(str2);
+		res = str + "<br>";
+		res += str2 + "<br>";
+		res += str3 + "<br>";
+		document.querySelector("#result5").innerHTML = res;
+	}
+	
+	function proc6(){
+		str4 = "      사과 바나나 복숭아 딸기 바나나    ";
+		res = "문자열 길이 : " + str4.length + "<br>";
+		str4 = str4.trim();
+		
+		res += "trim 후 문자열의 길이 :" + str4.length + "<br>";
+		document.querySelector("#result6").innerHTML = res;		
+	}
+	
+	function proc7(){
+		// 시작위치 입력
+		start = prompt("시작 위치를 입력하세요 : "); 		
+		// 마지막 위치 입력
+		end = prompt(" 마지막 위치를 입력하세요 : ");
+		
+		//출력 형태는 다음과 같다. 
+		// 원래 문자열
+		// 추출 문자열
+		res = "원래 문자열 : "  + str + "<br>";
+		res += "추출 문자열 : substring(" + start + "," + (end+1) + ")" + "<br>";
+		res += "결과 : " + str.substring(start, parseInt(end)+1) + "<br>";
+		// 그냥 end값을 입력하면 해당 인덱스의 값은 포함하지 않기 때문에 +1을 해준다.
+		
+		document.querySelector("#result7").innerHTML = res;
+	}
+	
+	function proc8(){
+		// 시작위치 입력
+		start = prompt("시작 위치를 입력하세요 : "); 		
+		// 마지막 위치 입력
+		end = prompt(" 마지막 위치를 입력하세요 : ");
+		
+		//출력 형태는 다음과 같다. 
+		// 원래 문자열
+		// 추출 문자열
+		res = "원래 문자열 : "  + str + "<br>";
+		res += "추출 문자열 : slice(" + start + "," + (end+1) + ")" + "<br>";
+		res += "결과 : " + str.slice(start, parseInt(end)+1) + "<br>";
+		// 그냥 end값을 입력하면 해당 인덱스의 값은 포함하지 않기 때문에 +1을 해준다.
+		
+		document.querySelector("#result8").innerHTML = res;
+	}
+	
+	function proc9(){
+		// 시작위치 입력
+		start = prompt("시작 위치를 입력하세요 : "); 		
+		// 마지막 위치 입력
+		end = prompt(" 길이를 입력하세요 : ");
+		
+		//출력 형태는 다음과 같다. 
+		// 원래 문자열
+		// 추출 문자열
+		res = "원래 문자열 : "  + str + "<br>";
+		res += "추출 문자열 : substr(" + start + "," + end + ")" + "<br>";
+		res += "결과 : " + str.substr(start, end) + "<br>";
+		// 그냥 end값을 입력하면 해당 인덱스의 값은 포함하지 않기 때문에 +1을 해준다.
+		
+		document.querySelector("#result9").innerHTML = res;
+	}
+	
+	function proc10(){
+		arr = str.split("/");
+		res = "문자열 길이 : " + str.length + "<br>";
+		res += "배열길이 : " + arr.length + "<br>";
+		res += "문자열 :" + str + "<br>";
+		res += "배열 : " + arr + "<br>";
+		
+		document.querySelector("#result10").innerHTML = res;
+	}
+	
+	function proc11(){
+		// 사용자가 입력한 값을 가져온다. 
+		area = document.querySelector("#area").value;		
+		area = area.replace(/\r/g,"").replace(/\n/g, "<br>");
+		
+		document.querySelector("#result11").innerHTML = area;
+	}
+	
+	
+</script>
+</head>
+<body>
+	<div class="box">
+		<h3>1. charAt / charCodeAt</h3>
+		charAt(index) : index 위치의 문자를 리턴한다.<br>
+		charCodeAt(index) : index 위치의 유니코드 값을 리턴한다.<br>
+		<br>
+		<input type="button" value="charAt" onclick="proc1()">
+		<input type="button" value="charCodeUnit" onclick="proc2()">
+		<br><br>
+		<div id="result1"></div>
+		<div id="result2"></div>
+	</div>
+	
+	<div class="box">
+		<h3>2. indexOf / lastIndexOf</h3>
+		str = "가나다/사자/호랑이/고양이/치타/코끼리/표범/사자/가나다";<br>
+		indexOf("문자열") : 문자열의 위치를 검색한다.<br>
+		lastIndexOf("문자열") : 문자열의 위치를 검색 - 뒤에서부터 시작한다.<br>
+		<br>
+		<input type="button" value="indexOf" onclick="proc3()">
+		<input type="button" value="lastIndexOf" onclick="proc4()">
+		<br><br>
+		<div id="result3"></div>
+		<div id="result4"></div>
+	</div>
+	
+	
+	<div class="box">
+		<h3>3. concat/trim</h3>
+		str2 = "사과/복숭아/자두/참외/수박/바나나";<br>
+		concat() : 두 개 이상의 문자열을 서로 합친다.<br>
+		str4 = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;사과 바나나 복숭아 딸기 바나나&nbsp;&nbsp;&nbsp;&nbsp;"<br>
+		trim() : 문자열 앞,뒤의 공백을 제거한다.<br>
+		<br>
+		<input type="button" value="concat" onclick="proc5()">
+		<input type="button" value="trim" onclick="proc6()">
+		<br><br>
+		<div id="result5"></div>
+		<div id="result6"></div>
+	</div>
+	
+	<div class="box">
+		<h3>4. substring/slice/substr</h3>
+		str = "가나다/사자/호랑이/고양이/치타/코끼리/표범/사자/가나다";<br>
+		substring(start, end) : start ~ end-1 까지의 문자열을 추출한다. <br>
+		slice(start, end) : start ~ end-1까지의 문자열을 추출한다. <br>
+		substr(start, length) : start ~ length 갯수를 추출한다. <br> 
+		<br>
+		<input type="button" value="substring" onclick="proc7()">
+		<input type="button" value="slice" onclick="proc8()">
+		<input type="button" value="substr" onclick="proc9()">
+		<br><br>
+		<div id="result7"></div>
+		<div id="result8"></div>
+		<div id="result9"></div>
+	</div>
+	
+	<div class="box">
+		<h3>5. split</h3>
+		str = "가나다/사자/호랑이/고양이/치타/코끼리/표범/사자/가나다";<br>
+		split(구분자, 개수) : 구분자로 문자를 구분해서 배열로 리턴한다. <br>
+		<br>
+		<input type="button" value="split" onclick="proc10()">
+		<br><br>
+		<div id="result10"></div>
+	</div>
+	
+	<div class="box">
+		<h3>6. replace</h3>
+		str = "가나다/사자/호랑이/고양이/치타/코끼리/표범/사자/가나다";<br>
+		replace(old, new) : old의 값을 new의 값으로 변경한다. <br>
+		replace(//g) : /와 / 사이에 정규 표현식을 사용할 수 있다, g는 global의 약자로, old에 해당하는 모든 값을 new로 바꾸는 것을 의미한다. <br>
+		<br>
+		<input type="button" value="replace" onclick="proc11()">
+		<br><br>
+		<textarea id="area" rows="10" cols="60"></textarea>
+		<div id="result11"></div>
+	</div>
+	
+	
+</body>
+</html>

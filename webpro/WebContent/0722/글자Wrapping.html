@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../css/public.css">
+<title>Insert title here</title>
+<style>
+div{
+	width : 500px;
+	height: 500px;
+	border: 1px solid blue;
+/* 	word-wrap : break-word; */
+	margin: 20px;
+	padding : 20px;
+
+}
+#dd{
+	word-wrap : break-word;
+}
+#dd2{
+	display : none; /* F12 통해 확인해보면 아예 존재하지 않는다.*/
+	
+}
+#dd3{
+	visibility: hidden;
+	/* 실제 실행해보면 자리를 차지하고 있지만, 보이지는 않는다. */
+	
+}
+</style>
+</head>
+<body>
+<pre><strong>
+div{
+	width : 500px;
+	height: 500px;
+	border: 1px solid blue;
+/* 	word-wrap : break-word; */
+	margin: 20px;
+	padding : 20px;
+}
+</strong></pre>
+<div>
+	fffffffffffffffffffffffffffffffffffffffffff
+	fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+	ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+	fffffffffffffffffffffff
+</div>
+
+<pre><strong>
+#dd{
+	word-wrap : break-word;
+}
+글자가 계속 이어질 때, 자동으로 줄바꿈을 해준다. 
+</pre></strong>
+<div>
+	fffffffffffffffffffffffffffffffffffffffffff
+	ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+	ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+	fffffffffffffffffffffff
+</div>
+
+<div id="dd2">
+
+</div>
+<div id="dd3">
+
+</div>
+</body>
+</html>

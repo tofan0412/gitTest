@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<style>
+#box{
+	border : 10px solid blue;
+	
+}
+div {
+	box-sizing: border-box;
+	margin: 1px;
+	padding: 5px;
+}
+
+#header {
+	height: 100px;
+	background: #FA5882;
+	/* 	clear : both; */
+	text-align: center;
+	padding: 5px;
+	line-height: 5px;
+	font-family: 고딕;
+	border-radius: 15px;
+}
+
+#nav {
+	width: calc(30% - 1%);
+	height: 500px;
+	float: left;
+	background: orange;
+	border-radius: 15px;
+}
+
+#content {
+	width: calc(70% - 1%);
+	height: 500px;
+	float: left;
+	background: #F7FE2E;
+	border-radius: 15px;
+	padding: 20px;
+}
+
+#footer {
+	height: 100px;
+	background: #F5A9F2;
+	clear: both;
+	border-radius: 15px;
+	font-size: 1.2em;
+	text-align: center;
+	padding-top: 35px;
+}
+
+img {
+	width: 20%;
+	height: 20%;
+	position: absolute;
+	left: 50px;
+}
+
+#co1 {
+	height : 210px;
+	border: 2px solid lightblue;
+	background: #A9E2F3;
+	padding: 25px;
+	border-radius: 15px;
+	line-height: 20px;
+	margin-bottom : 15px;
+	overflow : auto;
+	
+}
+
+#co2 {
+	height : 210px;
+	border: 2px solid lightblue;
+	background: #A9E2F3;
+	padding: 25px;
+	border-radius: 15px;
+	line-height: 20px;
+	margin-top : 15px;
+	overflow : auto;
+}
+</style>
+</head>
+<body>
+<div id="box">
+	<div id="header">
+		<h1>My Blog Page</h1>
+		<br> <strong>시멘틱 태그로 만들어진 페이지 입니다.</strong>
+	</div>
+	<div id="nav">
+		<h2>Links</h2>
+		<ul>
+			<li id="li1" class="li"><a href="https://naver.com"><strong>네이버</strong></a></li>
+			<li id="li2" class="li"><a href="https://daum.net"><strong>다음</strong></a></li>
+			<li id="li3" class="li"><a href="https://google.com"><strong>구글</strong></a></li>
+
+		</ul>
+	<figure>
+		<img src="../images/spongebob.png" alt="스폰지밥">
+		<figcaption>스폰지밥</figcaption>
+	</figure>
+	</div>
+	<div id="content">
+		<div id="co1">
+			<h3>Semantic Tags</h3>
+			<br> 시멘틱(semantic) 요소란 그 자체에 의미를 가지고 있는 요소를 말한다. 즉, 요소가 자기 스스로
+			브라우저와 개발자 모두에게 자신이 사용된 의미를 명확히 전달해 주는 요소를 의미한다. 시멘틱 요소가 아닌 div, span
+			요소 등은 해당 요소가 무슨 내용인지는 내부 코드를 봐야 알 수 있다. 그에 비해, 시멘틱 요소인 form, table,
+			img 요소는 코드를 보지 않아도 해당 요소가 이름만 봐도 바로 알 수가 있다.
+		</div>
+		<div id="co2">
+			<h3>div와 span</h3>
+			<br> div와 span은 css 적용을 도와주는 요소이다. 이 둘은 비슷하지만 다르게 사용된다. div는 한
+			블록을 차지하고, span은 요소의 크기만큼만 차지한다. 즉, div는 "display : block" , span는
+			"display : inline" 태그와의 차이점은 display속성이 block이 아닌, inline이라는 점인데, 이는
+			CSS display 항목에서 세부 정보를 알 수 있습니다.
+		</div>
+	</div>
+	<div id="footer">
+		<strong>방문해주셔서 감사합니다.</strong>
+	</div>
+</div>
+</body>
+</html>

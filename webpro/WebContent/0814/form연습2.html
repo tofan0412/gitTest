@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<style>
+</style>
+<script type="text/javascript">
+function proc1(){
+    
+    //name을 이용해서 접근
+    vname = document.ff.name.value;
+    vgender = document.ff.gender.value;
+    
+    vhobby = document.ff.hobby;
+    
+    res = "이름 : " + vname + "\n";
+    res += "성별 : " + vgender + "\n";
+    res += "취미 : " ;
+    
+    for(i=0; i<vhobby.length ; i++){
+       //console.log(vhobby[i].checked)
+       if(vhobby[i].checked){
+          res += vhobby[i].value + " ";
+       }
+    }
+    document.ff.area.value = res;
+ }
+
+</script>
+</head>
+<body>
+<div class = "box">
+   <form name = "ff">
+      이름 : <input type = "text" name = "name"   ><br>
+      
+      성별 : <input type = "radio" name = "gender" value = "남자" checked> 남자 
+           <input type = "radio" name = "gender" value = "여자"> 여자 <br>
+      
+      취미 : <input type = "checkbox" name = "hobby" value = "등산">등산 
+          <input type = "checkbox" name = "hobby" value = "등산">등산 
+          <input type = "checkbox" name = "hobby" value = "낚시">낚시
+          <input type = "checkbox" name = "hobby" value = "독서">독서 
+          <input type = "checkbox" name = "hobby" value = "사색">사색 
+          <input type = "checkbox" name = "hobby" value = "잠자기">잠자기 
+          <input type = "checkbox" name = "hobby" value = "공부하기 " checked="checked">공부하기 
+         <br><br>
+         <input type = "button" value = "결과출력" onclick="proc1()">
+         <br><br>         
+         <textarea name = "area" rows="10" cols="60"></textarea>
+      </form>
+</div>
+</body>
+</html>

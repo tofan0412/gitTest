@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<style>
+</style>
+</head>
+<body>
+<pre>
+	날짜 생성
+	var now = new Date();
+	document.write(now + "<br>");
+	document.write(now.toLocaleString() + "<br>")
+	document.write(now.toLocaleDateString() + "<br>")
+	document.write(now.toLocaleTimeString() + "<br>")
+</pre>
+</body>
+<script>
+// 	위에서부터 아래로 내려오므로, 위에 있으면 가장 먼저 실행된다. 
+//  스크립트의 위치는 위에 와도 되고, 아래에서 와도 된다. 
+	var now = new Date();
+	document.write(now + "<br>");
+	document.write(now.toLocaleString() + "<br>")
+	document.write(now.toLocaleDateString() + "<br>")
+	document.write(now.toLocaleTimeString() + "<br>")
+</script>
+</html>

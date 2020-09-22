@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script>
+	arr = ["복숭아", "참외","사과", "수박", "포도", "사과","바나나", "사과", "자두"]; 
+	function proc1(){
+		// 과일 이름을 입력하면 가장 앞에 있는 과일이 위치하는 인덱스를 알려준다. 
+		a = prompt("과일 이름을 입력하세요.");
+		idx = arr.indexOf(a);
+		
+		res = "찾는 과일 :" + a + "<br>";
+		res += idx + "번째에 있습니다.<br>";
+		
+		document.querySelector("#result1").innerHTML = res;
+	}
+	
+	
+	function proc2(){
+		a = prompt("과일 이름을 입력하세요.");
+		idx = arr.lastIndexOf(a);
+		res = "찾는 과일 : " + a + "<br>";
+		res += "가장 나중에 나오는 인덱스는 " + idx + "입니다.<br>";
+		
+		document.querySelector("#result2").innerHTML = res;
+	}
+	
+	// 중복하는 사과 모두 찾기
+	function proc3(){
+		a = prompt("과일 이름을 입력하세요.");
+		
+		idx = 0;
+		res = "찾는 과일 : " + a + "<br>";
+		
+		while(true){
+			idx = arr.indexOf(a, idx);	// a를 찾고 index값을 반환해라..?
+			if (idx == -1) break;
+			
+			res += idx + "번째 ";
+			idx++;
+		}
+		document.querySelector("#result3").innerHTML = res;
+	}
+	
+	
+	function proc4(){
+		// 추가할 과일을 입력하세요.
+		a = prompt("추가할 과일을 입력하세요.");	
+		// arr의 원래 배열을 출력 (res += 누적)
+		document.querySelector("#result4").innerHTML ="원래 배열 : " + arr + "<br>";
+		
+		// arr 배열에 추가한다. 
+		arr.push(a);
+		// arr의 새로 추가 된 배열을 출력 누적
+		document.querySelector("#result4").innerHTML += "나중 배열 : " + arr;
+		// result4에 출력
+	}
+	
+	function proc5(){
+		document.querySelector("#result5").innerHTML ="원래 배열 : " + arr + "<br>";
+		arr.pop();
+		document.querySelector("#result5").innerHTML += "나중 배열 : " + arr;
+	
+	}
+	
+	function proc6(){
+		res = [];
+		while(res.length != 5){
+			rndNum = Math.floor(Math.random()*45 + 1);
+			if (res.indexOf(rndNum) != -1) continue;	// -1이 아니면, 값이 이미 존재하며 해당 인덱스를 반환한다. 
+			res.push(rndNum);
+		}
+		document.querySelector("#result6").innerHTML += "결과 : " + res + "<br>";
+	}
+	
+</script>
+<style>
+
+</style>
+</head>
+<body>
+	<div class="box">
+		<h3>1. indexOf / lastIndexOf</h3>
+		arr = ["복숭아", "참외","사과", "수박", "포도", "사과","바나나", "사과", "자두"] <br>
+		indexOf("사과")<br>		<!--  가장 처음에 나온 사과를 찾는다. -->
+		indexOf("사과", 3)<br>	<!--  가운데에 나온 사과를 찾는다. -->
+		lastIndexOf("사과")<br>	<!--  마지막에 나온 사과를 찾는다.  -->
+		<br>
+		<input type="button" value="indexOf" onclick="proc1()">
+		<input type="button" value="lastIndexOf" onclick="proc2()">
+		<input type="button" value="중복찾기" onclick="proc3()">
+		<br><br>
+		<div id="result1"></div>
+		<div id="result2"></div>
+		<div id="result3"></div>
+	</div>
+	
+	<div class="box">
+		<h3>2. push / pop</h3>
+		- push : 배열의 마지막에 추가한다.<br>
+		- pop : 배열 마지막 요소를 제거한다. <br>
+		<br>
+		<input type="button" value="push" onclick="proc4()">
+		<input type="button" value="pop" onclick="proc5()">
+		<br><br>
+		<div id="result4"></div>
+		<div id="result5"></div>
+	</div>
+	
+	
+	<div class="box">
+		<h3>3. push예제</h3>
+		- 버튼을 클릭하면 1~45까지 의 랜덤한 숫자를 5개 씩 발생시킨다.<br>
+		- myLOTTO 배열에 저장한다.<br>
+		- 단 중복이 발생해선 안된다. <br>
+		<br>
+		<input type="button" value="push" onclick="proc6()">
+		<br><br>
+		<div id="result6"></div>
+	</div>
+	
+</body>
+</html>
